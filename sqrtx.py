@@ -51,18 +51,18 @@ class Solution3:
             b0 = -x0**2 - C
             k0 = 2*x0
             x1 = -b0/k0
-            if abs(x1-x0) < 0.0001:
+            if abs(x1-x0) < 0.00001:
                 break
             x0 = x1
         return int(x0)
 
 
-test = [9, 4, 8, 1, 2, 0]
-solutions = [Solution1(), Solution2(), Solution3()]
-for solution in solutions:
-    result = []
-    for t in test:
-        result.append(solution.mySqrt(t))
-    print(result)
-# s = Solution3()
-# print(s.mySqrt(9))
+# test = [9, 4, 8, 1, 2, 0]
+# solutions = [Solution1(), Solution2(), Solution3()]
+# for solution in solutions:
+#     result = []
+#     for t in test:
+#         result.append(solution.mySqrt(t))
+#     print(result)
+s = Solution3()
+print(s.mySqrt(2147395599)) # 46339
