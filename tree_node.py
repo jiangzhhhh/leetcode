@@ -12,19 +12,19 @@ class TreeNode:
         if not array:
             return None
 
-        def build(node: TreeNode, array: List, i: int, size: int):
-            node.val = array[i]
+        def build(array: List, i: int, size: int) -> TreeNode:
+            val = array[i]
+            if val == None:
+                return None
+            node = TreeNode(val)
             left = 2*i + 1
             right = 2*i + 2
             if left < size:
-                node.left = TreeNode()
-                build(node.left, array, left, size)
+                node.left = build(array, left, size)
             if right < size:
-                node.right = TreeNode()
-                build(node.right, array, right, size)
-        root = TreeNode()
-        build(root, array, 0, len(array))
-        return root
+                node.right = build(array, right, size)
+            return node
+        return build(array, 0, len(array))
 
     def __str__(self) -> str:
         def walk(node: TreeNode):
